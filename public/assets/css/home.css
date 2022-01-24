@@ -1,0 +1,66 @@
+.tags {
+    background: #2c3e50;
+    width: 80%;
+    margin: auto;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+}
+.tags a {
+    font-weight: bold;
+    color: orange;
+}
+.tag_name {
+    background: rebeccapurple;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img_card {
+    height: 400px;
+    border: 1px solid #2c3e50;
+}
+.img_card img {
+    width: 99%;
+    height: 200px;
+    cursor: pointer;
+}
+.img_info {
+    width: 95%;
+    margin: auto;
+}
+.img_info p {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+#p_title {
+    color: #313131;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+.img_likes {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img_likes a {
+    margin-right: 10px;
+    font-size: 20px;
+}
+.img_tags {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.img_tags a {
+    color: orange;
+    font-weight: bold;
+}

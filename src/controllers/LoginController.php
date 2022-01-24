@@ -6,6 +6,12 @@ use \src\models\Usuario;
 
 class LoginController extends Controller {
 
+    function __construct() {
+        if(Usuario::verificarSessao() == true) {
+            $this->redirect('/');
+        }
+    }
+
     public function index() {
         $flash = '';
         if(!empty($_SESSION['flash'])) {
@@ -25,9 +31,19 @@ class LoginController extends Controller {
         $email = filter_input(INPUT_POST, 'email');
         $senha = md5($_POST['senha']);
         if($email && $senha) {
-            $data = Usuario::select()->where('email', $email)->execute();
-            if(count($data) === 0) {
-                var_dump($data);exit;
+            $data = Usuario::select()->where('email', $email)->one();
+            if($data) {
+                $token = Usuario::select()->where('senha', $senha)->one();
+                if($token) {
+                    $_SESSION['usuario'] = $data['id'];
+                    $this->redirect('/');
+                }else {
+                    $_SESSION['flash'] = 'Senha está incorreta';
+                    $this->redirect('/login');
+                }
+            }else {
+                $_SESSION['flash'] = 'E-mail não está cadastrado';
+                $this->redirect('/login');
             }
         }else {
             $_SESSION['flash'] = 'Preencha os campos de e-mail e/ou senha';

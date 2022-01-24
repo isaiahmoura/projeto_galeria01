@@ -5,14 +5,11 @@ use \core\Model;
 class Usuario extends Model {
 
 
-    public function acessar($email) {
-        $login = Usuario::select()->where('email', $email)->execute();
-        
-        if($login) {
-
+    public function verificarSessao() {
+        if(isset($_SESSION['usuario']) && !empty($_SESSION['usuario'])) {
+            return true;
         }else {
-
+            return false;
         }
     }
-
 }

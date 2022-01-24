@@ -31,7 +31,8 @@
                 <div class="user_info">
                     <div class="user_data">
                         <img src="<?=$base;?>/assets/images/uploads/the_last_of_us.jpg" alt="">
-                        <a href="<?=$base;?>/perfil">Isaias Moura</a>
+                        <a href="<?=$base;?>/perfil"><?=$usuario->nome;?></a>
+                        <?php exit;?>
                         <a href="#">Minha Conta</a>
                     </div>
                 </div>
